@@ -1,0 +1,43 @@
+						HOW TO CREATE A SNAPSHOTS?
+
+.First create a new public instances using key pair for secure connection to the instances
+	.To create a public instances we have to enable Auto-assign public instances in network setting while creating the instances
+
+.After creating a new instance connect to that instance
+	.In that instance use sudo su command to switch as a root user
+	.After switching as a root user install git, java,  docker
+		yum install git -y
+		yum install java-17-amazon-corretto-devel -y
+		yum install docker -y
+.Later installing all the tools in the server comeback to the instances page in AWS and click on the storage which under the instances
+
+.It will show the volume created to that instances by click on the volume id it will navigates to the volume page
+
+.in the volume page select the volume that is attached to our instance then click on action a dropdown list will open click on create snapshot in that it will navigates to create snapshot page
+
+.In that give the description of the snapshot click on create snapshot in the left bottom of the page
+
+.now the snapshot of the volume is created
+
+.In the snapshot page select the snapshot that we have created click on the action button a dropdown list will open in that click on create volume form snapshot
+
+.Create a volume page will open in that carefully select the availability zone that we need to create instances finally click on create volume in the left bottom of the page
+
+.now the new volume is created using the snapshot that we created
+
+.Then create an another new instances using the same key pair but in the same availability zone that new volume we have created
+
+.now stop that second instance we created and detach the volume that is default created by instance
+
+.Next go the volume select the volume that we created using snapshot go the actions click on it a dropdown list will open click on attach volume
+
+.Attach volume page will open in that page select the second instances id select the device name as /dev/xvda and click on attach the volume in left bottom
+
+.Now open the second instances using connect option
+
+.In the second instances use sudo su command and switch as a root user
+
+	git --version
+	java --version
+	docker --version
+.By using the above three command we can check whether the tools are installed in the instances are not
